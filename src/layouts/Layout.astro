@@ -1,11 +1,17 @@
 ---
 import '../styles/global.css';
 
+type Image = {
+  mobile: string;
+  desktop: string;
+};
 interface Props {
   title: string;
+  bgImageSrc: Image;
 }
 
-const { title } = Astro.props;
+const { title, bgImageSrc } = Astro.props;
+const { mobile, desktop } = bgImageSrc;
 ---
 
 <!doctype html>
@@ -26,3 +32,15 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
+<style define:vars={{ mobile, desktop }}>
+  body {
+    background-image: var(--mobile);
+  }
+
+  @media (min-width: 62.5rem) {
+    body {
+      background-image: var(--desktop);
+    }
+  }
+</style>

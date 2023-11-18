@@ -11,3 +11,9 @@ html {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsla(var(--dark-gray), 0.05);
+}

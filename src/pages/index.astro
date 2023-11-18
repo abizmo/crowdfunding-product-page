@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const bgImageSrc = {
+  mobile: "url('/images/image-hero-mobile.jpg')",
+  desktop: "url('/images/image-hero-desktop.jpg')",
+};
 ---
 
-<Layout title='Frontend Mentor | Crowdfunding product page'>
+<Layout
+  title='Frontend Mentor | Crowdfunding product page'
+  bgImageSrc={bgImageSrc}
+>
   <h1>Crowdfunding product page</h1>
 </Layout>
 
