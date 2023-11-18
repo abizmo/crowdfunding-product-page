@@ -1,0 +1,13 @@
+:root {
+  --accent: 176, 50%, 47%;
+  --accent-dark: 176, 72%, 28%;
+  --black: 0, 0%, 0%;
+  --dark-gray: 0, 0%, 48%;
+  --white: 0, 0%, 100%;
+}
+
+html {
+  font-family: 'Commissioner', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
