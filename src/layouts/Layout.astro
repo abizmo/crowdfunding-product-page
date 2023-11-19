@@ -1,5 +1,6 @@
 ---
-import Header from '../components/Header.astro';
+import Header from '../components/Header/Header.astro';
+import HeaderLink from '../components/Header/HeaderLink.astro';
 import '../styles/global.css';
 
 type Image = {
@@ -30,7 +31,11 @@ const { mobile, desktop } = bgImageSrc;
     />
   </head>
   <body>
-    <Header />
+    <Header logoSrc='/images/logo.svg' logoAlt='crowdfund'>
+      <HeaderLink href='#'>About</HeaderLink>
+      <HeaderLink href='#'>Discover</HeaderLink>
+      <HeaderLink href='#'>GetStarted</HeaderLink>
+    </Header>
     <slot />
   </body>
 </html>
