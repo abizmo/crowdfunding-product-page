@@ -37,6 +37,10 @@ p {
   font-size: 0.875rem;
 }
 
+button {
+  font: inherit;
+}
+
 .container {
   --max-width: 50rem;
   --container-padding: 2rem;
