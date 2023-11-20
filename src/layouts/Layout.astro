@@ -43,6 +43,9 @@ const { mobile, desktop } = bgImageSrc;
 <style define:vars={{ mobile, desktop }}>
   body {
     background-image: var(--mobile);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: hsla(var(--dark-gray), 0.05);
   }
 
   @media (min-width: 62.5rem) {
