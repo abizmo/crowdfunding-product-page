@@ -1,17 +1,66 @@
 ---
+import Card from '../components/Card.astro';
 import Layout from '../layouts/Layout.astro';
 
 const bgImageSrc = {
   mobile: "url('/images/image-hero-mobile.jpg')",
   desktop: "url('/images/image-hero-desktop.jpg')",
 };
+
+const product = {
+  title: 'Mastercraft Bamboo Monitor Riser',
+  description:
+    'A beautiful & handcrafted monitor stand to reduce neck and eye strain.',
+};
+
+const { title, description } = product;
 ---
 
 <Layout
   title='Frontend Mentor | Crowdfunding product page'
   bgImageSrc={bgImageSrc}
 >
-  <h1>Mastercraft Bamboo Monitor Riser</h1>
+  <main class='container main-container'>
+    <Card className='text-center'>
+      <img class='logo' src='/images/logo-mastercraft.svg' alt='mastercraft' />
+      <h1 class='product-title'>{title}</h1>
+      <p class='product-description'>{description}</p>
+      <div class='row product-cta'>
+        <button class='btn btn--primary'>Back this project</button>
+        <label for='bookmark' class='checkbox'>
+          <input type='checkbox' name='bookmark' id='bookmark' />
+           bookmark
+        </label>
+      </div>
+    </Card>
+  </main>
 </Layout>
 
-<style></style>
+<style>
+  .main-container {
+    margin-top: 10em;
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .product-cta {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  @media (min-width: 62.5rem) {
+    .main-container {
+      margin-top: 12em;
+    }
+  }
+</style>
