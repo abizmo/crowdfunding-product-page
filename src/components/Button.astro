@@ -15,9 +15,10 @@ const { large = false, primary = false, disabled = false } = Astro.props;
   .btn {
     border: 0;
     font-weight: 500;
-    padding: 1em 2em;
+    padding: 0em 2em;
     border-radius: 50em;
     color: hsl(var(--white));
+    height: 3.5rem;
   }
 
   .primary {
@@ -25,7 +26,7 @@ const { large = false, primary = false, disabled = false } = Astro.props;
   }
 
   .large {
-    padding-inline: 3em;
+    width: 100%;
   }
 
   .disabled {
