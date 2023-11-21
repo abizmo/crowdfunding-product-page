@@ -1,0 +1,27 @@
+---
+
+---
+
+<label for='bookmark' class='checkbox'>
+  <input type='checkbox' name='bookmark' id='bookmark' />
+  <span class='label'>bookmark</span>
+</label>
+
+<style>
+  input {
+    appearance: none;
+    margin: 0;
+    background-color: red;
+    height: 3.5rem;
+    border-radius: 50%;
+  }
+
+  input::before {
+    content: url('/images/icon-bookmark.svg');
+    /* height: 3.5rem; */
+  }
+
+  .label {
+    display: none;
+  }
+</style>

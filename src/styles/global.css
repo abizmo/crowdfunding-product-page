@@ -37,7 +37,8 @@ p {
   font-size: 0.875rem;
 }
 
-button {
+button,
+input {
   font: inherit;
 }
 

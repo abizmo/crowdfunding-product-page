@@ -1,4 +1,5 @@
 ---
+import Bookmark from '../components/Bookmark.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import Layout from '../layouts/Layout.astro';
@@ -28,10 +29,7 @@ const { title, description } = product;
       <p class='product-description'>{description}</p>
       <div class='row product-cta'>
         <Button large primary>Back this project</Button>
-        <label for='bookmark' class='checkbox'>
-          <input type='checkbox' name='bookmark' id='bookmark' />
-           bookmark
-        </label>
+        <Bookmark />
       </div>
     </Card>
   </main>
