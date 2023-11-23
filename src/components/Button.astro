@@ -25,8 +25,14 @@ const { large = false, primary = false, disabled = false } = Astro.props;
     background-color: hsl(var(--accent));
   }
 
+  .primary:hover,
+  .primary:focus {
+    background-color: hsl(var(--accent-dark));
+  }
+
   .large {
     width: 100%;
+    max-width: 13.75rem;
   }
 
   .disabled {
