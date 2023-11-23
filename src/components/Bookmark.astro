@@ -2,26 +2,82 @@
 
 ---
 
-<label for='bookmark' class='checkbox'>
-  <input type='checkbox' name='bookmark' id='bookmark' />
-  <span class='label'>bookmark</span>
+<label for='bookmark' class='bookmark'>
+  <input
+    type='checkbox'
+    name='bookmark'
+    id='bookmark'
+    class='bookmark__checkbox'
+  />
+  <svg
+    class='bookmark__icon'
+    width='56'
+    height='56'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <g fill='none' fill-rule='evenodd'>
+      <circle class='circle' fill='#2F2F2F' cx='28' cy='28' r='28'></circle>
+      <path class='path' fill='#B1B1B1' d='M23 19v18l5-5.058L33 37V19z'></path>
+    </g>
+  </svg>
+  <span class='bookmark__label'>Bookmark</span>
 </label>
 
 <style>
-  input {
+  .bookmark {
+    display: flex;
+    align-items: center;
+    background-color: hsla(var(--dark-gray), 0.1);
+    border-radius: 10em;
+  }
+
+  .bookmark__checkbox {
     appearance: none;
     margin: 0;
-    background-color: red;
-    height: 3.5rem;
-    border-radius: 50%;
   }
 
-  input::before {
-    content: url('/images/icon-bookmark.svg');
-    /* height: 3.5rem; */
+  .bookmark__checkbox:checked + .bookmark__icon .circle {
+    fill: hsl(var(--accent-dark));
   }
 
-  .label {
-    display: none;
+  .bookmark__checkbox:checked + .bookmark__icon .path {
+    fill: hsl(var(--white));
+  }
+
+  @media (max-width: 62.4999rem) {
+    .bookmark__label {
+      display: none;
+    }
+  }
+
+  @media (min-width: 62.5rem) {
+    .bookmark {
+      padding-right: 2em;
+    }
+
+    .bookmark__label {
+      font-weight: 700;
+      color: hsl(var(--dark-gray));
+      margin-left: 1em;
+    }
+
+    .bookmark__checkbox:checked ~ .bookmark__label {
+      color: hsl(var(--accent-dark));
+    }
+
+    .bookmark[aria-checked='true'] {
+      background-color: hsla(var(--accent-dark), 0.05);
+    }
   }
 </style>
+
+<script>
+  const bookmark = document.querySelector('.bookmark');
+  const checkbox = document.querySelector('.bookmark__checkbox');
+
+  checkbox?.addEventListener('click', () => {
+    checkbox?.checked
+      ? bookmark?.setAttribute('aria-checked', 'true')
+      : bookmark?.setAttribute('aria-checked', 'false');
+  });
+</script>
