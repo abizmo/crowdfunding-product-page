@@ -1,13 +1,12 @@
 ---
 interface Props {
-  class: string;
+  class?: string;
 }
 
-const { class: className } = Astro.props;
-const classes = className.split(' ');
+const { class: className = undefined } = Astro.props;
 ---
 
-<div class:list={['card', ...classes]}>
+<div class={`card ${className}`}>
   <slot />
 </div>
 

@@ -23,7 +23,13 @@ body {
 
 html {
   font-family: 'Commissioner', system-ui, sans-serif;
+  color: hsl(var(--dark-gray));
   line-height: 1.6;
+}
+
+h1,
+b {
+  color: hsl(var(--black));
 }
 
 ul {
@@ -33,7 +39,6 @@ ul {
 }
 
 p {
-  color: hsl(var(--dark-gray));
   font-size: 0.875rem;
 }
 

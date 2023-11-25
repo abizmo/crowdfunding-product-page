@@ -1,0 +1,88 @@
+---
+import Card from './Card.astro';
+import Progress from './Progress.astro';
+---
+
+<Card>
+  <ul class='stat__list'>
+    <li class='stat__item'>
+      <b>$89,914</b>
+       of $100,000 backed
+    </li>
+    <li class='stat__item'>
+      <b>5,007</b>
+       total backers
+    </li>
+    <li class='stat__item'>
+      <b>56</b>
+       days left
+    </li>
+  </ul>
+  <Progress id='money' max={100000} value={89914} />
+</Card>
+
+<style>
+  .stat__list {
+    margin-bottom: 2em;
+  }
+
+  .stat__item {
+    position: relative;
+  }
+
+  .stat__item + .stat__item::before {
+    position: absolute;
+    top: 0;
+    content: '';
+    display: block;
+    background-color: hsla(var(--dark-gray), 0.2);
+  }
+
+  .stat__item b {
+    display: block;
+    font-size: 34px;
+    margin-bottom: 0.15em;
+  }
+
+  @media (max-width: 62.4999rem) {
+    .stat__list {
+      text-align: center;
+    }
+
+    .stat__item {
+      margin-bottom: 1.5em;
+    }
+
+    .stat__item + .stat__item {
+      padding-top: 1.5em;
+    }
+
+    .stat__item + .stat__item::before {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 1px;
+    }
+  }
+
+  @media (min-width: 62.5rem) {
+    .stat__list {
+      display: flex;
+    }
+
+    .stat__item {
+      width: 100%;
+    }
+
+    .stat__item + .stat__item {
+      padding-left: 3em;
+    }
+
+    .stat__item + .stat__item::before {
+      width: 1px;
+      height: 100%;
+      left: 0;
+      transform: none;
+    }
+  }
+</style>

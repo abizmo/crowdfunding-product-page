@@ -2,6 +2,7 @@
 import Bookmark from '../components/Bookmark.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
+import Stats from '../components/Stats.astro';
 import Layout from '../layouts/Layout.astro';
 
 const bgImageSrc = {
@@ -23,15 +24,24 @@ const { title, description } = product;
   bgImageSrc={bgImageSrc}
 >
   <main class='container main-container'>
-    <Card class='text-center'>
-      <img class='logo' src='/images/logo-mastercraft.svg' alt='mastercraft' />
-      <h1 class='product-title'>{title}</h1>
-      <p class='product-description'>{description}</p>
-      <div class='row product-cta'>
-        <Button large primary>Back this project</Button>
-        <Bookmark />
-      </div>
-    </Card>
+    <section id='product-header'>
+      <Card class='text-center'>
+        <img
+          class='logo'
+          src='/images/logo-mastercraft.svg'
+          alt='mastercraft'
+        />
+        <h1 class='product-title'>{title}</h1>
+        <p class='product-description'>{description}</p>
+        <div class='row product-cta'>
+          <Button large primary>Back this project</Button>
+          <Bookmark />
+        </div>
+      </Card>
+    </section>
+    <section id='project-stats'>
+      <Stats />
+    </section>
   </main>
 </Layout>
 
@@ -40,6 +50,9 @@ const { title, description } = product;
     margin-top: 10em;
   }
 
+  section + section {
+    margin-top: 2em;
+  }
   .logo {
     position: absolute;
     top: 0;
