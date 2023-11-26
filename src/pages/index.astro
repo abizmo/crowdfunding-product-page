@@ -47,7 +47,7 @@ const { title, description } = product;
     </section>
     <section>
       <Card>
-        <h2>About this project</h2>
+        <h2 class='about-title'>About this project</h2>
         <p>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
           that elevates your screen to a more comfortable viewing height.
@@ -82,8 +82,7 @@ const { title, description } = product;
   }
 
   .product-title {
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: var(--fs-h1);
     margin-bottom: 1em;
   }
 
@@ -94,6 +93,11 @@ const { title, description } = product;
   .product-cta {
     justify-content: space-between;
     gap: 1rem;
+    font-size: var(--fs-500);
+  }
+
+  .about-title {
+    font-size: var(--fs-h2);
   }
 
   @media (min-width: 62.5rem) {
@@ -102,7 +106,6 @@ const { title, description } = product;
     }
 
     .product-title {
-      font-size: 1.75rem;
       margin-bottom: 0.6em;
     }
 
