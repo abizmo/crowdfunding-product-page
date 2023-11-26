@@ -24,10 +24,17 @@ body {
 html {
   font-family: 'Commissioner', system-ui, sans-serif;
   color: hsl(var(--dark-gray));
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 h1,
+h2,
+h3 {
+  line-height: 1;
+}
+h1,
+h2,
+h3,
 b {
   color: hsl(var(--black));
 }
