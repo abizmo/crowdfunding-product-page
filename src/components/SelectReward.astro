@@ -172,7 +172,10 @@ const rewards: Reward[] = [
 </style>
 
 <script>
+  const body = document.querySelector('body');
   const checkboxes = document.querySelectorAll('.reward__checkbox');
+  const dialog = document.querySelector('.dialog');
+  const closeBtn = document.querySelector('.select-reward__close');
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
@@ -182,5 +185,18 @@ const rewards: Reward[] = [
       const reward = (e.target as HTMLElement)?.closest('.reward');
       reward?.setAttribute('aria-checked', 'true');
     });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    const oldReward = document.querySelector('.reward[aria-checked=true]');
+    if (oldReward) {
+      oldReward.setAttribute('aria-checked', 'false');
+      (
+        oldReward.querySelector('.reward__checkbox') as HTMLInputElement
+      ).checked = false;
+    }
+
+    (dialog as HTMLDialogElement).close();
+    body?.classList.remove('has-modal');
   });
 </script>

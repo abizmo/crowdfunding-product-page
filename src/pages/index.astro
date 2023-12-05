@@ -128,7 +128,7 @@ const { title, description } = product;
   const btn = document.querySelector('.product-btn');
 
   btn?.addEventListener('click', () => {
-    dialog.showModal();
+    (dialog as HTMLDialogElement).showModal();
     body?.classList.add('has-modal');
   });
 </script>
