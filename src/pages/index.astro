@@ -2,8 +2,11 @@
 import Bookmark from '../components/Bookmark.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
+import Modal from '../components/Modal.astro';
 import Rewards from '../components/Rewards.astro';
 import Stats from '../components/Stats.astro';
+import SelectReward from '../components/SelectReward.astro';
+import ThankYou from '../components/ThankYou.astro';
 import Layout from '../layouts/Layout.astro';
 
 const bgImageSrc = {
@@ -63,6 +66,10 @@ const { title, description } = product;
       </Card>
     </section>
   </main>
+  <Modal>
+    <SelectReward />
+    <!-- <ThankYou /> -->
+  </Modal>
 </Layout>
 
 <style>
@@ -114,3 +121,14 @@ const { title, description } = product;
     }
   }
 </style>
+
+<script>
+  const body = document.querySelector('body');
+  const dialog = document.querySelector('.dialog');
+  const btn = document.querySelector('.product-btn');
+
+  btn?.addEventListener('click', () => {
+    dialog.showModal();
+    body?.classList.add('has-modal');
+  });
+</script>

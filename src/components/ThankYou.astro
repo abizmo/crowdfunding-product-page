@@ -1,0 +1,35 @@
+---
+import Button from './Button.astro';
+---
+
+<div class='thank-you'>
+  <img src='/images/icon-check.svg' alt='check' />
+  <h2 id='dialog__title' class='dialog__title'>Thanks for your support!</h2>
+  <p class='dialog__text'>
+    Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor
+    Riser worldwide. You will get an email once our campaign is completed.
+  </p>
+  <Button primary class='dialog__btn'>Got it!</Button>
+</div>
+
+<style>
+  .thank-you {
+    --max-width: 33.75rem;
+    text-align: center;
+  }
+
+  .dialog__title {
+    font-size: var(--fs-h2);
+    margin-block: 1.5em;
+  }
+
+  .dialog__text {
+    margin-bottom: 2em;
+  }
+
+  @media (min-width: 62.5em) {
+    .dialog__title {
+      margin-block: 2em 0.75em;
+    }
+  }
+</style>

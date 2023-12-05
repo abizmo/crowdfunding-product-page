@@ -1,0 +1,186 @@
+---
+import Button from './Button.astro';
+
+interface Reward {
+  title: string;
+  price: number;
+  description: string;
+  stock: number;
+}
+
+const rewards: Reward[] = [
+  {
+    title: 'Bamboo Stand',
+    price: 25,
+    description:
+      'You get an ergonomic stand made of natural bamboo. You’ve helped us launch our promotional campaign, and you’ll be added to a special Backer member list.',
+    stock: 101,
+  },
+  {
+    title: 'Black Edition Stand',
+    price: 75,
+    description:
+      'You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 64,
+  },
+  {
+    title: 'Mahogany Special Edition',
+    price: 200,
+    description:
+      'You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 0,
+  },
+];
+---
+
+<div class='select-reward'>
+  <div class='select-reward__header'>
+    <h2 class='select-reward__title'>Back this project</h2>
+    <button class='select-reward__close'
+      ><img src='/images/icon-close-modal.svg' alt='' /></button
+    >
+  </div>
+  <p class='select-reward__text'>
+    Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the
+    world?
+  </p>
+  <form action='' class='select-reward__form'>
+    <div role='listbox'>
+      <div class='reward' role='option' aria-checked='false'>
+        <div class='reward__body'>
+          <label>
+            <input
+              class='reward__checkbox'
+              type='radio'
+              name='reward'
+              id='reward-0'
+              value={0}
+            />
+            <h3>Pledge with no reward</h3>
+          </label>
+          <p>
+            Choose to support us without a reward if you simply believe in our
+            project. As a backer, you will be signed up to receive product
+            updates via email.
+          </p>
+        </div>
+        <div class='reward__footer'>
+          <p class='reward__footer-text'>Enter your pledge</p>
+          <div class='reward__submit'>
+            <input
+              type='number'
+              name='pledge'
+              id='pledge-0'
+              class='reward__input'
+              value='0'
+            />
+            <Button primary>Continue</Button>
+          </div>
+        </div>
+      </div>
+      {
+        rewards.map(({ title, price, description, stock }) => (
+          <div class='reward' role='option' aria-checked='false'>
+            <div class='reward__body'>
+              <label>
+                <input
+                  class='reward__checkbox'
+                  type='radio'
+                  name='reward'
+                  id={`reward-${price}`}
+                  value={price}
+                />
+                <h3>{title}</h3>
+              </label>
+              <span class='reward__pledge'>Pledge ${price} or more</span>
+              <p class='reward__stock'>
+                <b>{stock}</b> left
+              </p>
+              <p>{description}</p>
+            </div>
+            <div class='reward__footer'>
+              <p class='reward__footer-text'>Enter your pledge</p>
+              <div class='reward__submit'>
+                <input
+                  type='number'
+                  name='pledge'
+                  id={`pledge-${price}`}
+                  class='reward__input'
+                  value={price}
+                />
+                <Button primary>Continue</Button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </form>
+</div>
+
+<style>
+  .select-reward__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .select-reward__close {
+    background-color: transparent;
+    border: 0;
+  }
+  .reward {
+    border: 1px solid hsla(var(--dark-gray), 0.2);
+    border-radius: 0.5em;
+    margin-bottom: 1.5em;
+  }
+  .reward[aria-checked='true'] {
+    border-color: hsl(var(--accent));
+  }
+  .reward__footer {
+    display: none;
+    border-top: 1px solid hsla(var(--dark-gray), 0.2);
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reward[aria-checked='true'] .reward__footer {
+    display: block;
+  }
+  .reward__submit {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+  }
+  .reward__input {
+    border: 1px solid hsla(var(--dark-gray), 0.2);
+    padding: 0em 1.5em;
+    border-radius: 50em;
+    height: 3.5rem;
+    width: 6.25rem;
+  }
+
+  @media (max-width: 62.4999rem) {
+    .reward__footer {
+      text-align: center;
+    }
+  }
+  @media (min-width: 62.5rem) {
+    .reward[aria-checked='true'] .reward__footer {
+      display: flex;
+      padding: 2em;
+    }
+  }
+</style>
+
+<script>
+  const checkboxes = document.querySelectorAll('.reward__checkbox');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', (e) => {
+      const oldReward = document.querySelector('.reward[aria-checked=true]');
+      if (oldReward) oldReward.setAttribute('aria-checked', 'false');
+
+      const reward = (e.target as HTMLElement)?.closest('.reward');
+      reward?.setAttribute('aria-checked', 'true');
+    });
+  });
+</script>
