@@ -67,13 +67,10 @@ const rewards: Reward[] = [
         <div class='reward__footer'>
           <p class='reward__footer-text'>Enter your pledge</p>
           <div class='reward__submit'>
-            <input
-              type='number'
-              name='pledge'
-              id='pledge-0'
-              class='reward__input'
-              value='0'
-            />
+            <div class='reward__input'>
+              <span>$</span>
+              <input type='number' name='pledge' id='pledge-0' value='0' />
+            </div>
             <Button primary>Continue</Button>
           </div>
         </div>
@@ -156,6 +153,26 @@ const rewards: Reward[] = [
     border-radius: 50em;
     height: 3.5rem;
     width: 6.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .reward__input span {
+    margin-right: 0.5em;
+  }
+
+  .reward__input input {
+    border: 0;
+    padding: 0;
+    width: 100%;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .reward__input input::-webkit-outer-spin-button,
+  .reward__input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   @media (max-width: 62.4999rem) {
