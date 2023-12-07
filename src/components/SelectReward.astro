@@ -48,7 +48,7 @@ const rewards: Reward[] = [
     <div role='listbox'>
       <div class='reward' role='option' aria-checked='false'>
         <div class='reward__body'>
-          <label>
+          <label class='reward__header'>
             <input
               class='reward__checkbox'
               type='radio'
@@ -56,9 +56,9 @@ const rewards: Reward[] = [
               id='reward-0'
               value={0}
             />
-            <h3>Pledge with no reward</h3>
+            <h3 class='reward__title'>Pledge with no reward</h3>
           </label>
-          <p>
+          <p class='reward__description'>
             Choose to support us without a reward if you simply believe in our
             project. As a backer, you will be signed up to receive product
             updates via email.
@@ -79,7 +79,7 @@ const rewards: Reward[] = [
         rewards.map(({ title, price, description, stock }) => (
           <div class='reward' role='option' aria-checked='false'>
             <div class='reward__body'>
-              <label>
+              <label class='reward__header'>
                 <input
                   class='reward__checkbox'
                   type='radio'
@@ -87,13 +87,15 @@ const rewards: Reward[] = [
                   id={`reward-${price}`}
                   value={price}
                 />
-                <h3>{title}</h3>
+                <h3 class='reward__title'>
+                  {title}
+                  <span class='reward__pledge'>Pledge ${price} or more</span>
+                </h3>
               </label>
-              <span class='reward__pledge'>Pledge ${price} or more</span>
+              <p class='reward__description'>{description}</p>
               <p class='reward__stock'>
                 <b>{stock}</b> left
               </p>
-              <p>{description}</p>
             </div>
             <div class='reward__footer'>
               <p class='reward__footer-text'>Enter your pledge</p>
@@ -120,18 +122,53 @@ const rewards: Reward[] = [
     display: flex;
     justify-content: space-between;
   }
+
   .select-reward__close {
     background-color: transparent;
     border: 0;
   }
+
   .reward {
     border: 1px solid hsla(var(--dark-gray), 0.2);
     border-radius: 0.5em;
     margin-bottom: 1.5em;
   }
+
   .reward[aria-checked='true'] {
     border-color: hsl(var(--accent));
   }
+
+  .reward__header {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    grid-area: header;
+  }
+
+  .reward__checkbox {
+    grid-area: checkbox;
+  }
+
+  .reward__title {
+    grid-area: title;
+    font-size: 0.875rem;
+    display: grid;
+    gap: 0.5em;
+  }
+
+  .reward__pledge {
+    color: hsl(var(--accent));
+    font-weight: 400;
+  }
+
+  .reward__stock {
+    grid-area: stock;
+  }
+
+  .reward__description {
+    grid-area: description;
+  }
+
   .reward__footer {
     display: none;
     border-top: 1px solid hsla(var(--dark-gray), 0.2);
@@ -139,9 +176,11 @@ const rewards: Reward[] = [
     justify-content: space-between;
     align-items: center;
   }
+
   .reward[aria-checked='true'] .reward__footer {
     display: block;
   }
+
   .reward__submit {
     display: flex;
     gap: 1.5em;
@@ -180,10 +219,26 @@ const rewards: Reward[] = [
       text-align: center;
     }
   }
+
   @media (min-width: 62.5rem) {
     .reward[aria-checked='true'] .reward__footer {
       display: flex;
       padding: 2em;
+    }
+
+    .reward__body {
+      display: grid;
+      grid-template-areas:
+        'header header stock'
+        '. description description';
+      grid-template-columns: 2em 1fr max-content;
+      padding: 0.5em 1.2em;
+    }
+
+    .reward__title {
+      font-size: 1rem;
+      display: flex;
+      gap: 1em;
     }
   }
 </style>
