@@ -138,6 +138,10 @@ const rewards: Reward[] = [
     border-color: hsl(var(--accent));
   }
 
+  .reward__body {
+    padding: 0.5em 1.2em;
+  }
+
   .reward__header {
     display: flex;
     gap: 1em;
@@ -163,6 +167,12 @@ const rewards: Reward[] = [
 
   .reward__stock {
     grid-area: stock;
+    font-size: 0.9375rem;
+  }
+
+  .reward__stock b {
+    font-size: 1.125rem;
+    margin-right: 0.25em;
   }
 
   .reward__description {
@@ -232,7 +242,6 @@ const rewards: Reward[] = [
         'header header stock'
         '. description description';
       grid-template-columns: 2em 1fr max-content;
-      padding: 0.5em 1.2em;
     }
 
     .reward__title {
