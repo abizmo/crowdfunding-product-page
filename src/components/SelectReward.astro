@@ -100,13 +100,15 @@ const rewards: Reward[] = [
             <div class='reward__footer'>
               <p class='reward__footer-text'>Enter your pledge</p>
               <div class='reward__submit'>
-                <input
-                  type='number'
-                  name='pledge'
-                  id={`pledge-${price}`}
-                  class='reward__input'
-                  value={price}
-                />
+                <div class='reward__input'>
+                  <span>$</span>
+                  <input
+                    type='number'
+                    name='pledge'
+                    id={`pledge-${price}`}
+                    value={price}
+                  />
+                </div>
                 <Button primary>Continue</Button>
               </div>
             </div>
@@ -208,6 +210,8 @@ const rewards: Reward[] = [
 
   .reward__input span {
     margin-right: 0.5em;
+    font-weight: 700;
+    color: hsl(var(--dark-gray), 0.5);
   }
 
   .reward__input input {
