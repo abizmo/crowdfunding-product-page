@@ -153,6 +153,31 @@ const rewards: Reward[] = [
 
   .reward__checkbox {
     grid-area: checkbox;
+    appearance: none;
+    margin: 0;
+    background-color: #fff;
+    font: inherit;
+    color: hsla(var(--dark-gray), 0.5);
+    width: 1.5rem;
+    height: 1.5em;
+    border: 1px solid currentColor;
+    border-radius: 5em;
+    display: grid;
+    place-content: center;
+  }
+
+  .reward__checkbox::before {
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em hsl(var(--accent));
+    border-radius: 5em;
+  }
+
+  .reward__checkbox:checked::before {
+    transform: scale(1);
   }
 
   .reward__title {
