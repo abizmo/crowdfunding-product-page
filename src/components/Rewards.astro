@@ -36,7 +36,7 @@ const rewards: Reward[] = [
 <ul class='reward__list'>
   {
     rewards.map(({ title, price, description, stock }) => (
-      <li class:list={['reward__item', { outOfStock: !stock }]}>
+      <li class:list={['reward__item', { disabled: !stock }]}>
         <div class='reward__header'>
           <h3 class='reward__title'>{title}</h3>
           <span class='reward__pledge'>Pledge ${price} or more</span>
@@ -61,10 +61,6 @@ const rewards: Reward[] = [
     margin-bottom: 2em;
     padding: 1.5em;
     border-radius: 0.5rem;
-  }
-
-  .outOfStock {
-    opacity: 0.5;
   }
 
   .reward__header {

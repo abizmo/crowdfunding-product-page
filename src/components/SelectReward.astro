@@ -77,7 +77,11 @@ const rewards: Reward[] = [
       </div>
       {
         rewards.map(({ title, price, description, stock }) => (
-          <div class='reward' role='option' aria-checked='false'>
+          <div
+            class:list={['reward', { disabled: stock === 0 }]}
+            role='option'
+            aria-checked='false'
+          >
             <div class='reward__body'>
               <label class='reward__header'>
                 <input
