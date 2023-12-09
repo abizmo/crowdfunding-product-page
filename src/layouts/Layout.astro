@@ -34,7 +34,7 @@ const { mobile, desktop } = bgImageSrc;
     <Header logoSrc='/images/logo.svg' logoAlt='crowdfund'>
       <HeaderLink href='#'>About</HeaderLink>
       <HeaderLink href='#'>Discover</HeaderLink>
-      <HeaderLink href='#'>GetStarted</HeaderLink>
+      <HeaderLink href='#'>Get Started</HeaderLink>
     </Header>
     <slot />
   </body>
@@ -43,6 +43,9 @@ const { mobile, desktop } = bgImageSrc;
 <style define:vars={{ mobile, desktop }}>
   body {
     background-image: var(--mobile);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: hsla(var(--dark-gray), 0.05);
   }
 
   @media (min-width: 62.5rem) {

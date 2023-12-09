@@ -1,0 +1,316 @@
+---
+import Button from './Button.astro';
+
+interface Reward {
+  title: string;
+  price: number;
+  description: string;
+  stock: number;
+}
+
+const rewards: Reward[] = [
+  {
+    title: 'Bamboo Stand',
+    price: 25,
+    description:
+      'You get an ergonomic stand made of natural bamboo. You’ve helped us launch our promotional campaign, and you’ll be added to a special Backer member list.',
+    stock: 101,
+  },
+  {
+    title: 'Black Edition Stand',
+    price: 75,
+    description:
+      'You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 64,
+  },
+  {
+    title: 'Mahogany Special Edition',
+    price: 200,
+    description:
+      'You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 0,
+  },
+];
+---
+
+<div class='select-reward'>
+  <div class='select-reward__header'>
+    <h2 class='select-reward__title'>Back this project</h2>
+    <button class='select-reward__close'
+      ><img src='/images/icon-close-modal.svg' alt='' /></button
+    >
+  </div>
+  <p class='select-reward__text'>
+    Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the
+    world?
+  </p>
+  <form action='' class='select-reward__form'>
+    <div role='listbox'>
+      <div class='reward' role='option' aria-checked='false'>
+        <div class='reward__body'>
+          <label class='reward__header'>
+            <input
+              class='reward__checkbox'
+              type='radio'
+              name='reward'
+              id='reward-0'
+              value={0}
+            />
+            <h3 class='reward__title'>Pledge with no reward</h3>
+          </label>
+          <p class='reward__description'>
+            Choose to support us without a reward if you simply believe in our
+            project. As a backer, you will be signed up to receive product
+            updates via email.
+          </p>
+        </div>
+        <div class='reward__footer'>
+          <p class='reward__footer-text'>Enter your pledge</p>
+          <div class='reward__submit'>
+            <div class='reward__input'>
+              <span>$</span>
+              <input type='number' name='pledge' id='pledge-0' value='0' />
+            </div>
+            <Button primary>Continue</Button>
+          </div>
+        </div>
+      </div>
+      {
+        rewards.map(({ title, price, description, stock }) => (
+          <div
+            class:list={['reward', { disabled: stock === 0 }]}
+            role='option'
+            aria-checked='false'
+          >
+            <div class='reward__body'>
+              <label class='reward__header'>
+                <input
+                  class='reward__checkbox'
+                  type='radio'
+                  name='reward'
+                  id={`reward-${price}`}
+                  value={price}
+                />
+                <h3 class='reward__title'>
+                  {title}
+                  <span class='reward__pledge'>Pledge ${price} or more</span>
+                </h3>
+              </label>
+              <p class='reward__description'>{description}</p>
+              <p class='reward__stock'>
+                <b>{stock}</b> left
+              </p>
+            </div>
+            <div class='reward__footer'>
+              <p class='reward__footer-text'>Enter your pledge</p>
+              <div class='reward__submit'>
+                <div class='reward__input'>
+                  <span>$</span>
+                  <input
+                    type='number'
+                    name='pledge'
+                    id={`pledge-${price}`}
+                    value={price}
+                  />
+                </div>
+                <Button primary>Continue</Button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </form>
+</div>
+
+<style>
+  .select-reward__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .select-reward__close {
+    background-color: transparent;
+    border: 0;
+  }
+
+  .reward {
+    border: 1px solid hsla(var(--dark-gray), 0.2);
+    border-radius: 0.5em;
+    margin-bottom: 1.5em;
+  }
+
+  .reward[aria-checked='true'] {
+    border-color: hsl(var(--accent));
+  }
+
+  .reward__body {
+    padding: 0.5em 1.2em;
+  }
+
+  .reward__header {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    grid-area: header;
+  }
+
+  .reward__checkbox {
+    grid-area: checkbox;
+    appearance: none;
+    margin: 0;
+    background-color: #fff;
+    font: inherit;
+    color: hsla(var(--dark-gray), 0.5);
+    width: 1.5rem;
+    height: 1.5em;
+    border: 1px solid currentColor;
+    border-radius: 5em;
+    display: grid;
+    place-content: center;
+  }
+
+  .reward__checkbox::before {
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em hsl(var(--accent));
+    border-radius: 5em;
+  }
+
+  .reward__checkbox:checked::before {
+    transform: scale(1);
+  }
+
+  .reward__title {
+    grid-area: title;
+    font-size: 0.875rem;
+    display: grid;
+    gap: 0.5em;
+  }
+
+  .reward__pledge {
+    color: hsl(var(--accent));
+    font-weight: 400;
+  }
+
+  .reward__stock {
+    grid-area: stock;
+    font-size: 0.9375rem;
+  }
+
+  .reward__stock b {
+    font-size: 1.125rem;
+    margin-right: 0.25em;
+  }
+
+  .reward__description {
+    grid-area: description;
+  }
+
+  .reward__footer {
+    display: none;
+    border-top: 1px solid hsla(var(--dark-gray), 0.2);
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .reward[aria-checked='true'] .reward__footer {
+    display: block;
+  }
+
+  .reward__submit {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+  }
+  .reward__input {
+    border: 1px solid hsla(var(--dark-gray), 0.2);
+    padding: 0em 1.5em;
+    border-radius: 50em;
+    height: 3.5rem;
+    width: 6.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .reward__input span {
+    margin-right: 0.5em;
+    font-weight: 700;
+    color: hsl(var(--dark-gray), 0.5);
+  }
+
+  .reward__input input {
+    border: 0;
+    padding: 0;
+    width: 100%;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .reward__input input::-webkit-outer-spin-button,
+  .reward__input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @media (max-width: 62.4999rem) {
+    .reward__footer {
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 62.5rem) {
+    .reward[aria-checked='true'] .reward__footer {
+      display: flex;
+      padding: 2em;
+    }
+
+    .reward__body {
+      display: grid;
+      grid-template-areas:
+        'header header stock'
+        '. description description';
+      grid-template-columns: 2em 1fr max-content;
+    }
+
+    .reward__title {
+      font-size: 1rem;
+      display: flex;
+      gap: 1em;
+    }
+  }
+</style>
+
+<script>
+  const body = document.querySelector('body');
+  const checkboxes = document.querySelectorAll('.reward__checkbox');
+  const dialog = document.querySelector('.dialog');
+  const closeBtn = document.querySelector('.select-reward__close');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', (e) => {
+      const oldReward = document.querySelector('.reward[aria-checked=true]');
+      if (oldReward) oldReward.setAttribute('aria-checked', 'false');
+
+      const reward = (e.target as HTMLElement)?.closest('.reward');
+      reward?.setAttribute('aria-checked', 'true');
+    });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    const oldReward = document.querySelector('.reward[aria-checked=true]');
+    if (oldReward) {
+      oldReward.setAttribute('aria-checked', 'false');
+      (
+        oldReward.querySelector('.reward__checkbox') as HTMLInputElement
+      ).checked = false;
+    }
+
+    (dialog as HTMLDialogElement).close();
+    body?.classList.remove('has-modal');
+  });
+</script>

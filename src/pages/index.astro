@@ -1,17 +1,134 @@
 ---
+import Bookmark from '../components/Bookmark.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import Modal from '../components/Modal.astro';
+import Rewards from '../components/Rewards.astro';
+import Stats from '../components/Stats.astro';
+import SelectReward from '../components/SelectReward.astro';
+import ThankYou from '../components/ThankYou.astro';
 import Layout from '../layouts/Layout.astro';
 
 const bgImageSrc = {
   mobile: "url('/images/image-hero-mobile.jpg')",
   desktop: "url('/images/image-hero-desktop.jpg')",
 };
+
+const product = {
+  title: 'Mastercraft Bamboo Monitor Riser',
+  description:
+    'A beautiful & handcrafted monitor stand to reduce neck and eye strain.',
+};
+
+const { title, description } = product;
 ---
 
 <Layout
   title='Frontend Mentor | Crowdfunding product page'
   bgImageSrc={bgImageSrc}
 >
-  <h1>Mastercraft Bamboo Monitor Riser</h1>
+  <main class='container main-container'>
+    <section id='product-header'>
+      <Card class='text-center'>
+        <img
+          class='logo'
+          src='/images/logo-mastercraft.svg'
+          alt='mastercraft'
+        />
+        <h1 class='product-title'>{title}</h1>
+        <p class='product-description'>{description}</p>
+        <div class='row product-cta'>
+          <Button large primary class='product-btn'>Back this project</Button>
+          <Bookmark />
+        </div>
+      </Card>
+    </section>
+    <section id='project-stats'>
+      <Card>
+        <Stats />
+      </Card>
+    </section>
+    <section>
+      <Card>
+        <h2 class='about-title'>About this project</h2>
+        <p>
+          The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
+          that elevates your screen to a more comfortable viewing height.
+          Placing your monitor at eye level has the potential to improve your
+          posture and make you more comfortable while at work, helping you stay
+          focused on the task at hand.
+        </p><p>
+          Featuring artisan craftsmanship, the simplicity of design creates
+          extra desk space below your computer to allow notepads, pens, and USB
+          sticks to be stored under the stand.
+        </p>
+        <Rewards />
+      </Card>
+    </section>
+  </main>
+  <Modal>
+    <SelectReward />
+    <!-- <ThankYou /> -->
+  </Modal>
 </Layout>
 
-<style></style>
+<style>
+  .main-container {
+    margin-top: 10em;
+    margin-bottom: 6em;
+  }
+
+  section + section {
+    margin-top: 2em;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .product-title {
+    font-size: var(--fs-h1);
+    margin-bottom: 1em;
+  }
+
+  .product-description {
+    margin-bottom: 2em;
+  }
+
+  .product-cta {
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: var(--fs-500);
+  }
+
+  .about-title {
+    font-size: var(--fs-h2);
+  }
+
+  @media (min-width: 62.5rem) {
+    .main-container {
+      margin-top: 12em;
+    }
+
+    .product-title {
+      margin-bottom: 0.6em;
+    }
+
+    .product-description {
+      margin-bottom: 3em;
+    }
+  }
+</style>
+
+<script>
+  const body = document.querySelector('body');
+  const dialog = document.querySelector('.dialog');
+  const btn = document.querySelector('.product-btn');
+
+  btn?.addEventListener('click', () => {
+    (dialog as HTMLDialogElement).showModal();
+    body?.classList.add('has-modal');
+  });
+</script>

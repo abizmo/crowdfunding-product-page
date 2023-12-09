@@ -7,6 +7,19 @@
 
   --min-margin: 1rem;
   --max-width: 70rem;
+
+  --fs-h1: clamp(1.25rem, 1.0739rem + 0.7512vw, 1.75rem);
+  --fs-h2: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem);
+  --fs-h3: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem);
+  --fs-900: 2rem;
+  --fs-600: 1.125rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 0.875rem;
+}
+
+::backdrop {
+  --black: 0, 0%, 0%;
 }
 
 *,
@@ -21,16 +34,24 @@ body {
   padding: 0;
 }
 
-html {
+body {
   font-family: 'Commissioner', system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: hsl(var(--dark-gray));
+  font-size: 0.875rem;
+  line-height: 1.7;
 }
 
-body {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: hsla(var(--dark-gray), 0.05);
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+b {
+  color: hsl(var(--black));
 }
 
 ul {
@@ -39,9 +60,18 @@ ul {
   list-style: none;
 }
 
+button,
+input {
+  font: inherit;
+}
+
+dialog {
+  color: inherit;
+}
+
 .container {
-  --max-width: 70rem;
-  --container-padding: 1rem;
+  --max-width: 50rem;
+  --container-padding: 2rem;
 
   width: min(var(--max-width), 100% - (var(--container-padding) * 2));
   margin-inline: auto;
@@ -57,4 +87,28 @@ ul {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.has-modal {
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (min-width: 1000px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
 }

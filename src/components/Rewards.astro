@@ -1,0 +1,106 @@
+---
+import Button from './Button.astro';
+
+interface Reward {
+  title: string;
+  price: number;
+  description: string;
+  stock: number;
+}
+
+const rewards: Reward[] = [
+  {
+    title: 'Bamboo Stand',
+    price: 25,
+    description:
+      'You get an ergonomic stand made of natural bamboo. You’ve helped us launch our promotional campaign, and you’ll be added to a special Backer member list.',
+    stock: 101,
+  },
+  {
+    title: 'Black Edition Stand',
+    price: 75,
+    description:
+      'You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 64,
+  },
+  {
+    title: 'Mahogany Special Edition',
+    price: 200,
+    description:
+      'You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 0,
+  },
+];
+---
+
+<ul class='reward__list'>
+  {
+    rewards.map(({ title, price, description, stock }) => (
+      <li class:list={['reward__item', { disabled: !stock }]}>
+        <div class='reward__header'>
+          <h3 class='reward__title'>{title}</h3>
+          <span class='reward__pledge'>Pledge ${price} or more</span>
+        </div>
+        <p class='reward__description'>{description}</p>
+        <div class='reward__footer'>
+          <p class='reward__stock'>
+            <b>{stock}</b> left
+          </p>
+          <Button primary disabled={!stock}>
+            {!stock ? 'Out of Stock' : 'Select Reward'}
+          </Button>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .reward__item {
+    border: 1px solid hsla(var(--dark-gray), 0.2);
+    margin-bottom: 2em;
+    padding: 1.5em;
+    border-radius: 0.5rem;
+  }
+
+  .reward__header {
+    margin-bottom: 1.5em;
+  }
+
+  .reward__title {
+    font-size: var(--fs-h3);
+    margin-block: 0 0.3em;
+  }
+
+  .reward__pledge {
+    color: hsl(var(--accent));
+  }
+
+  .reward__stock {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--fs-400);
+  }
+
+  .reward__stock b {
+    font-size: var(--fs-900);
+  }
+
+  @media (min-width: 62.5rem) {
+    .reward__header,
+    .reward__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reward__pledge {
+      font-size: var(--fs-400);
+    }
+
+    .reward__footer {
+      font-size: var(--fs-300);
+    }
+  }
+</style>

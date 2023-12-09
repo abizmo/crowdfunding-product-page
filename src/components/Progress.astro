@@ -1,0 +1,33 @@
+---
+interface Props {
+  id: string;
+  value: number;
+  max: number;
+}
+
+const { id, value, max } = Astro.props;
+---
+
+<progress class='stat__progress' id={id} max={max} value={value}>
+  {Math.round((value / max) * 100)}%
+</progress>
+
+<style>
+  .stat__progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0px;
+    height: 0.8em;
+  }
+
+  .stat__progress::-webkit-progress-bar {
+    background-color: hsla(var(--dark-gray), 0.1);
+    border-radius: 2em;
+  }
+
+  .stat__progress::-webkit-progress-value {
+    background-color: hsl(var(--accent));
+    border-radius: 2em;
+  }
+</style>

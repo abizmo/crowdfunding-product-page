@@ -56,7 +56,7 @@ const { logoSrc, logoAlt } = Astro.props;
 
 <style>
   .header-container {
-    --max-width: 70rem;
+    --max-width: 75rem;
   }
 
   .primary-header {
@@ -71,6 +71,7 @@ const { logoSrc, logoAlt } = Astro.props;
 
   .primary-header[data-overlay]::before {
     content: '';
+    z-index: 5;
     position: fixed;
     inset: 0;
     background-image: linear-gradient(
@@ -80,7 +81,7 @@ const { logoSrc, logoAlt } = Astro.props;
   }
 
   .primary-header[data-overlay] * {
-    z-index: 2;
+    z-index: 10;
   }
 
   .close {
@@ -104,7 +105,7 @@ const { logoSrc, logoAlt } = Astro.props;
     display: none;
   }
 
-  @media (max-width: 999.999px) {
+  @media (max-width: 62.4999rem) {
     .nav {
       display: none;
 
@@ -113,12 +114,12 @@ const { logoSrc, logoAlt } = Astro.props;
       background-color: hsl(var(--white));
       border-radius: 1em;
       overflow: hidden;
-      max-width: 25em;
+      max-width: 30em;
       margin-inline: auto;
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 62.5rem) {
     .primary-header {
       padding-block: 4em;
     }

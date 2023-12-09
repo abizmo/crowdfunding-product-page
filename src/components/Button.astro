@@ -1,0 +1,51 @@
+---
+interface Props {
+  large?: boolean;
+  primary?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+const {
+  class: className,
+  large = false,
+  primary = false,
+  disabled = false,
+} = Astro.props;
+---
+
+<button
+  class:list={['btn', { large, primary, disabled }, className]}
+  disabled={disabled}
+>
+  <slot />
+</button>
+
+<style>
+  .btn {
+    border: 0;
+    font-weight: 700;
+    padding: 0em 1.5em;
+    border-radius: 50em;
+    color: hsl(var(--white));
+    height: 3.5rem;
+    min-width: 6.75rem;
+  }
+
+  .primary {
+    background-color: hsl(var(--accent));
+  }
+
+  .primary:not(.disabled):hover,
+  .primary:not(.disabled):focus {
+    background-color: hsl(var(--accent-dark));
+  }
+
+  .large {
+    width: 100%;
+    max-width: 13.75rem;
+  }
+
+  .disabled {
+    background-color: hsl(var(--dark-gray));
+  }
+</style>

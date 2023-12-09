@@ -1,0 +1,36 @@
+---
+import Button from './Button.astro';
+import Card from './Card.astro';
+---
+
+<dialog class='dialog'>
+  <div class='container'>
+    <Card>
+      <slot />
+    </Card>
+  </div>
+</dialog>
+
+<style>
+  .dialog[open]::backdrop {
+    background-color: hsla(var(--black), 0.5);
+  }
+
+  .dialog[open] {
+    border: 0;
+    padding: 0;
+    max-width: fit-content;
+    background-color: transparent;
+  }
+</style>
+
+<script>
+  const body = document.querySelector('body');
+  const dialog = document.querySelector('.dialog');
+  const btn = document.querySelector('.dialog__btn');
+
+  btn?.addEventListener('click', () => {
+    dialog.close();
+    body?.classList.remove('has-modal');
+  });
+</script>
