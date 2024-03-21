@@ -47,6 +47,10 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         }
       },
+      fontFamily: {
+        body: 'var(--ff-body)',
+        heading: 'var(--ff-heading)'
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
