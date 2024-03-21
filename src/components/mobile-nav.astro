@@ -1,40 +1,55 @@
----
-
----
-
-<div class='md:hidden'>
-  <button
-    class='mobile-nav-toggle'
-    aria-controls='primary-navigation'
-    aria-expanded='false'
+<button
+  class='z-10 md:hidden'
+  aria-controls='primary-navigation'
+  aria-expanded='false'
+  id='mobile-nav-button'
+>
+  <img
+    class='icon-hamburger'
+    src='./images/icon-hamburger.svg'
+    alt=''
+    aria-hidden='true'
+  />
+  <img
+    class='icon-close-menu'
+    src='./images/icon-close-menu.svg'
+    alt=''
+    aria-hidden='true'
+    hidden
+  />
+  <span class='sr-only'>Menu</span>
+</button>
+<nav
+  class="fixed md:hidden top-20 inset-x-6 before:content-[''] before:fixed before:inset-0 before:h-full before:w-full before:-z-10 before:bg-gradient-to-b before:from-black/80 before:to-black/0 before:to-50%"
+  id='primary-navigation'
+  hidden
+>
+  <ul
+    role='list'
+    aria-label='primary'
+    class='text-lg font-medium leading-none text-black bg-white rounded-lg'
   >
-    <img
-      class='icon-hamburger'
-      src='./images/icon-hamburger.svg'
-      alt=''
-      aria-hidden='true'
-    />
-    <img
-      class='icon-close-menu'
-      src='./images/icon-close-menu.svg'
-      alt=''
-      aria-hidden='true'
-      hidden
-    />
-    <span class='sr-only'>Menu</span>
-  </button>
-  <nav class='primary-nav'>
-    <ul
-      role='list'
-      class='nav__list'
-      id='primary-navigation'
-      aria-label='primary'
-    >
-      <li class='nav__item'><a href='#' class='nav__link'>About</a></li>
-      <li class='nav__item'><a href='#' class='nav__link'>Discover</a></li>
-      <li class='nav__item'>
-        <a href='#' class='nav__link'>Get StartXd</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+    <li class='border-b border-border/10 last:border-none'>
+      <a href='#' class='block p-6'>About</a>
+    </li>
+    <li class='border-b border-border/10 last:border-none'>
+      <a href='#' class='block p-6'>Discover</a>
+    </li>
+    <li class='border-b border-border/10 last:border-none'>
+      <a href='#' class='block p-6'>Get Start</a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const mobileNavButton = document.getElementById('mobile-nav-button')
+  const primaryNavigation = document.getElementById('primary-navigation')
+  const iconHamburger = mobileNavButton?.querySelector('.icon-hamburger')
+  const iconClose = document.querySelector('.icon-close-menu')
+
+  mobileNavButton?.addEventListener('click', () => {
+    primaryNavigation?.toggleAttribute('hidden')
+    iconClose?.toggleAttribute('hidden')
+    iconHamburger?.toggleAttribute('hidden')
+  })
+</script>
