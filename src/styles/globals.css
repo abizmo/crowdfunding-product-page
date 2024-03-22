@@ -57,5 +57,14 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: var(--ff-body);
+    background-image: url('/images/image-hero-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen(md) {
+    body {
+      background-image: url('/images/image-hero-desktop.jpg');
+    }
   }
 }
