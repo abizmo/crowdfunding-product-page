@@ -59,7 +59,7 @@
     font-family: var(--ff-body);
     background-image: url('/images/image-hero-mobile.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
   }
 
   @media screen(md) {
