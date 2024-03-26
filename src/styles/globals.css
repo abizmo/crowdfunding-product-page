@@ -17,6 +17,10 @@
     --card: var(--clr-neutral-100);
     --card-foreground: var(--clr-neutral-600);
 
+    --bookmark: var(--clr-neutral-600) / 0.2;
+    --bookmark-foreground: var(--clr-neutral-600);
+    --bookmark-checked: var(--clr-cyan-800);
+
     --popover: var(--clr-neutral-100);
     --popover-foreground: var(--clr-neutral-900);
 

@@ -1,6 +1,7 @@
 ---
 import RootLayout from '@/layouts/root.astro'
 import { Button } from '@/ui/button'
+import Bookmark from '@/components/bookmark'
 import {
   Card,
   CardDescription,
@@ -20,7 +21,7 @@ import {
     </CardHeader>
     <CardFooter className='justify-between mt-5'>
       <Button>Back this project</Button>
-      <Button>Bookmark</Button>
+      <Bookmark client:load />
     </CardFooter>
   </Card>
 </RootLayout>

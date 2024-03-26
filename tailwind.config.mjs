@@ -45,6 +45,11 @@ export default {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
+        },
+        bookmark: {
+          DEFAULT: 'hsl(var(--bookmark))',
+          foreground: 'hsl(var(--bookmark-foreground))',
+          checked: 'hsl(var(--bookmark-checked))'
         }
       },
       fontFamily: {
