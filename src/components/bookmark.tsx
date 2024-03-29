@@ -4,7 +4,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 
 export default function Bookmark() {
   return (
-    <div className='flex items-center gap-4 bg-bookmark h-14 rounded-full pr-6'>
+    <div className='flex items-center gap-4 bg-bookmark h-14 rounded-full md:pr-6'>
       <Checkbox id='bookmark' />
       <label
         htmlFor='bookmark'
