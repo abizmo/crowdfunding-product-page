@@ -1,0 +1,38 @@
+---
+interface Props {
+  value: string
+  description: string
+}
+
+const { value, description } = Astro.props
+---
+
+<div
+  class='relative text-center md:text-left md:w-1/3 pb-6 last:pb-0 md:pb-0 mb-9 md:mb-0 md:mr-10 last:mr-0 last:mb-0 with-separator'
+>
+  <p class='text-3xl font-bold text-neutral-900 mb-2'>{value}</p>
+  <p>{description}</p>
+</div>
+
+<style>
+  .with-separator:not(:last-child):after {
+    content: '';
+    height: 24px;
+    border-bottom: 1px solid hsl(var(--border) / 0.3);
+    width: 80px;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  @media (min-width: 768px) {
+    .with-separator:not(:last-child):after {
+      height: 64px;
+      width: 44px;
+      border-bottom: 0;
+      border-right: 1px solid hsl(var(--border) / 0.3);
+      top: 0;
+      right: 0;
+      transform: translateX(0%);
+    }
+  }
+</style>

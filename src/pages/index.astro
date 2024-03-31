@@ -4,24 +4,37 @@ import { Button } from '@/ui/button'
 import Bookmark from '@/components/bookmark'
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle
 } from '@/ui/card'
+import { Progress } from '@/ui/progress'
+import Stat from '@/components/stat.astro'
 ---
 
 <RootLayout>
-  <Card>
-    <CardHeader className='text-center'>
-      <CardTitle>Mastercraft Bamboo Monitor Riser</CardTitle>
-      <CardDescription>
-        A beautiful & handcrafted monitor stand to reduce neck and eye strain.
-      </CardDescription>
-    </CardHeader>
-    <CardFooter className='justify-between mt-5'>
-      <Button>Back this project</Button>
-      <Bookmark client:load />
-    </CardFooter>
-  </Card>
+  <div class='grid gap-6'>
+    <Card>
+      <CardHeader className='text-center'>
+        <CardTitle>Mastercraft Bamboo Monitor Riser</CardTitle>
+        <CardDescription>
+          A beautiful & handcrafted monitor stand to reduce neck and eye strain.
+        </CardDescription>
+      </CardHeader>
+      <CardFooter className='justify-between mt-5'>
+        <Button>Back this project</Button>
+        <Bookmark client:load />
+      </CardFooter>
+    </Card>
+    <Card>
+      <CardContent className='mb-8 md:mb-10 md:flex'>
+        <Stat value='$89,914' description='of $100,000 backed' />
+        <Stat value='5,007' description='total backers' />
+        <Stat value='56' description='days left' />
+      </CardContent>
+      <CardFooter><Progress value={33} /></CardFooter>
+    </Card>
+  </div>
 </RootLayout>
