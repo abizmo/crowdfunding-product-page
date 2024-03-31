@@ -46,6 +46,10 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
+        progress: {
+          DEFAULT: 'hsl(var(--progress))',
+          foreground: 'hsl(var(--progress-foreground))'
+        },
         bookmark: {
           DEFAULT: 'hsl(var(--bookmark))',
           foreground: 'hsl(var(--bookmark-foreground))',
