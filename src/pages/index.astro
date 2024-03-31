@@ -1,9 +1,27 @@
 ---
 import RootLayout from '@/layouts/root.astro'
 import { Button } from '@/ui/button'
+import Bookmark from '@/components/bookmark'
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/ui/card'
 ---
 
 <RootLayout>
-  <h1>Astro</h1>
-  <Button>Testing Shadcn Installation</Button>
+  <Card>
+    <CardHeader className='text-center'>
+      <CardTitle>Mastercraft Bamboo Monitor Riser</CardTitle>
+      <CardDescription>
+        A beautiful & handcrafted monitor stand to reduce neck and eye strain.
+      </CardDescription>
+    </CardHeader>
+    <CardFooter className='justify-between mt-5'>
+      <Button>Back this project</Button>
+      <Bookmark client:load />
+    </CardFooter>
+  </Card>
 </RootLayout>

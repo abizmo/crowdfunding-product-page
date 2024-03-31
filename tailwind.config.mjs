@@ -45,6 +45,11 @@ export default {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
+        },
+        bookmark: {
+          DEFAULT: 'hsl(var(--bookmark))',
+          foreground: 'hsl(var(--bookmark-foreground))',
+          checked: 'hsl(var(--bookmark-checked))'
         }
       },
       fontFamily: {
@@ -55,6 +60,10 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
+      },
+      margin: {
+        'hero-mobile': 'clamp(10rem, 0.3846rem + 41.0256vw, 17rem)',
+        'hero-desktop': 'clamp(3rem, -9.5714rem + 26.1905vw, 14rem)'
       },
       keyframes: {
         'accordion-down': {
