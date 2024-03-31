@@ -36,7 +36,7 @@ import Stat from '@/components/stat.astro'
       </CardContent>
       <CardFooter><Progress value={33} /></CardFooter>
     </Card>
-    <Card>
+    <Card className='mb-20 md:mb-32'>
       <CardHeader className='space-y-6 md:space-y-8'>
         <CardTitle className='text-xl md:text-xl'>About this project</CardTitle>
         <CardDescription>
@@ -52,7 +52,25 @@ import Stat from '@/components/stat.astro'
           sticks to be stored under the stand.
         </CardDescription>
       </CardHeader>
-      <CardContent className=''> hola </CardContent>
+      <CardContent className=''>
+        <Card>
+          <CardHeader>
+            <CardTitle>Card title</CardTitle>
+            <CardDescription>Card description</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              You get an ergonomic stand made of natural bamboo. You've helped
+              us launch our promotional campaign, and you’ll be added to a
+              special Backer member list.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <p>101 <span>left</span></p>
+            <Button>Select Reward</Button>
+          </CardFooter>
+        </Card>
+      </CardContent>
     </Card>
   </div>
 </RootLayout>
