@@ -12,6 +12,31 @@ import {
 } from '@/ui/card'
 import { Progress } from '@/ui/progress'
 import Stat from '@/components/stat.astro'
+import CardReward from '@/components/card-reward.astro'
+
+const rewards = [
+  {
+    reward: 'Bamboo Stand',
+    value: 25,
+    description:
+      "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.",
+    stock: 101
+  },
+  {
+    reward: 'Black Edition Stand',
+    value: 75,
+    description:
+      'You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 64
+  },
+  {
+    reward: 'Mahogany Special Edition',
+    value: 200,
+    description:
+      'You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.',
+    stock: 0
+  }
+]
 ---
 
 <RootLayout>
@@ -35,6 +60,26 @@ import Stat from '@/components/stat.astro'
         <Stat value='56' description='days left' />
       </CardContent>
       <CardFooter><Progress value={33} /></CardFooter>
+    </Card>
+    <Card className='mb-20 md:mb-32'>
+      <CardHeader className='space-y-6 md:space-y-8'>
+        <CardTitle className='text-xl md:text-xl'>About this project</CardTitle>
+        <CardDescription>
+          The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
+          that elevates your screen to a more comfortable viewing height.
+          Placing your monitor at eye level has the potential to improve your
+          posture and make you more comfortable while at work, helping you stay
+          focused on the task at hand.
+        </CardDescription>
+        <CardDescription>
+          Featuring artisan craftsmanship, the simplicity of design creates
+          extra desk space below your computer to allow notepads, pens, and USB
+          sticks to be stored under the stand.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className='grid gap-6'>
+        {rewards.map((reward) => <CardReward {...reward} />)}
+      </CardContent>
     </Card>
   </div>
 </RootLayout>

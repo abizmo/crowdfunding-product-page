@@ -38,7 +38,7 @@
     --secondary: var(--clr-cyan-800);
     --secondary-foreground: var(--clr-neutral-100);
 
-    --muted: var(--clr-neutral-200);
+    --muted: var(--clr-neutral-400);
     --muted-foreground: var(--clr-neutral-100);
 
     --accent: var(--clr-neutral-600);
