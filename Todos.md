@@ -14,9 +14,9 @@
 
 ## 1. Estructura básica de la aplicación (rama: `feature/base-structure`)
 
-- [ ] Crear layout principal con componente Layout de shadcn
-- [ ] Implementar navegación superior con componentes de shadcn
-- [ ] Configurar rutas básicas con React Router (si es necesario)
+- [x] Crear layout principal con componente Layout de shadcn
+- [x] Implementar navegación superior con componentes de shadcn
+- [ ] ~~Configurar rutas básicas con React Router (si es necesario)~~
 - [ ] Crear store principal de Zustand para el estado global
 - [ ] Configurar tema base de Tailwind y variables CSS personalizadas
 - **Punto de control**: `tag v0.1.0-estructura-base`
