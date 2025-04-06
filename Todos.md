@@ -18,6 +18,26 @@
 - [x] Implementar navegación superior con componentes de shadcn
 - [ ] ~~Configurar rutas básicas con React Router (si es necesario)~~
 - [ ] Crear store principal de Zustand para el estado global
+
+  1. **Store de Proyectos**
+
+     - Información básica: nombre, descripción, imagen
+     - Métricas: monto recaudado (\$89,914), objetivo total (\$100,000), número de backers (5,007), días restantes (56)
+     - Descripción detallada del proyecto
+     - Colección de niveles de contribución
+       - Cada nivel contiene: nombre, precio mínimo, descripción, cantidad disponible, estado de disponibilidad
+
+  2. **Store de Usuario**
+
+     - Proyectos guardados (bookmarks)
+
+  3. _[WIP]_ **Store de UI**
+
+     - **Estado de modales**:
+       - Control para mostrar/ocultar ventanas modales (pledge, confirmación, etc.)
+       - Tipo de modal activo
+       - Datos asociados al modal (como ID de pledge seleccionada)
+
 - [ ] Configurar tema base de Tailwind y variables CSS personalizadas
 - **Punto de control**: `tag v0.1.0-estructura-base`
 
