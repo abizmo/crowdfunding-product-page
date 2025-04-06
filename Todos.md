@@ -19,7 +19,7 @@
 - [ ] ~~Configurar rutas básicas con React Router (si es necesario)~~
 - [ ] Crear store principal de Zustand para el estado global
 
-  1. **Store de Proyectos**
+  1. [x] **Store de Proyectos**
 
      - Información básica: nombre, descripción, imagen
      - Métricas: monto recaudado (\$89,914), objetivo total (\$100,000), número de backers (5,007), días restantes (56)
@@ -27,11 +27,11 @@
      - Colección de niveles de contribución
        - Cada nivel contiene: nombre, precio mínimo, descripción, cantidad disponible, estado de disponibilidad
 
-  2. **Store de Usuario**
+  2. [x] **Store de Usuario**
 
      - Proyectos guardados (bookmarks)
 
-  3. _[WIP]_ **Store de UI**
+  3. [ ] _[WIP]_ **Store de UI**
 
      - **Estado de modales**:
        - Control para mostrar/ocultar ventanas modales (pledge, confirmación, etc.)

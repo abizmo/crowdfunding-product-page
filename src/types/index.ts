@@ -32,3 +32,8 @@ export interface Project {
   stats: Stats;
   pledgeOptions: Pledge[];
 }
+
+export interface User {
+  id: string;
+  bookmarks: string[];
+}
