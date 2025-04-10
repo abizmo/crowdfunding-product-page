@@ -1,10 +1,14 @@
-import { Button } from "./components/ui/button";
+import Header from "@/components/layout/header";
+import ProductPage from "@/pages/product-page";
+import AttributionFooter from "./components/layout/attribution-footer";
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh">
-      <Button>Click</Button>
-    </div>
+    <>
+      <Header />
+      <ProductPage />
+      <AttributionFooter />
+    </>
   );
 }
 
