@@ -31,7 +31,7 @@
 
      - Proyectos guardados (bookmarks)
 
-  3. [ ] _[WIP]_ **Store de UI**
+  3. [x] _[WIP]_ **Store de UI**
 
      - **Estado de modales**:
        - Control para mostrar/ocultar ventanas modales (pledge, confirmación, etc.)
