@@ -17,7 +17,7 @@
 - [x] Crear layout principal con componente Layout de shadcn
 - [x] Implementar navegación superior con componentes de shadcn
 - [ ] ~~Configurar rutas básicas con React Router (si es necesario)~~
-- [ ] Crear store principal de Zustand para el estado global
+- [x] Crear store principal de Zustand para el estado global
 
   1. [x] **Store de Proyectos**
 
@@ -38,7 +38,7 @@
        - Tipo de modal activo
        - Datos asociados al modal (como ID de pledge seleccionada)
 
-- [ ] Configurar tema base de Tailwind y variables CSS personalizadas
+- [x] Configurar tema base de Tailwind y variables CSS personalizadas
 - **Punto de control**: `tag v0.1.0-estructura-base`
 
 ## 2. Sección de cabecera (rama: `feature/project-header`)
