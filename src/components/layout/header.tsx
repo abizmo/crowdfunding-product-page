@@ -8,11 +8,13 @@ function Header() {
   ];
 
   return (
-    <header className="absolute container flex min-h-20 items-center justify-between sm:py-12">
-      <a href="/">
-        <img src="/images/logo.svg" alt="crowfund" />
-      </a>
-      <Navigation navLinks={navLinks} />
+    <header className="absolute inset-x-0 top-0">
+      <div className="container flex min-h-20 items-center justify-between sm:py-12">
+        <a href="/">
+          <img src="/images/logo.svg" alt="crowfund" />
+        </a>
+        <Navigation navLinks={navLinks} />
+      </div>
     </header>
   );
 }

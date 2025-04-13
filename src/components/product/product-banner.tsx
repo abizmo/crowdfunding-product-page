@@ -1,11 +1,11 @@
 import { useProjectState } from "@/stores/project-store";
 
 function ProductBanner() {
-  const { image } = useProjectState();
+  const { image, name } = useProjectState();
   return (
     <picture className="relative top-0 -z-10">
       <source srcSet={image.desktop} media="(width>= 640px)" />
-      <img src={image.mobile} alt="mastercraft-bamboo-monitor-raiser" />
+      <img className="mx-auto" src={image.mobile} alt={name} />
     </picture>
   );
 }
