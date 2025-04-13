@@ -11,11 +11,12 @@ interface UserActions {
   actions: {
     addToBookmarks: (projectId: string) => void;
     removeFromBookmarks: (projectId: string) => void;
+    isBookmarked: (projectId: string) => boolean;
   };
 }
 
 const userStore = create<UserState & UserActions>()(
-  immer((set) => ({
+  immer((set, get) => ({
     user: {
       id: "userId",
       bookmarks: [],
@@ -33,6 +34,7 @@ const userStore = create<UserState & UserActions>()(
             (p) => p !== projectId,
           );
         }),
+      isBookmarked: (projectId) => get().user.bookmarks.includes(projectId),
     },
   })),
 );

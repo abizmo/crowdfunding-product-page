@@ -43,11 +43,11 @@
 
 ## 2. Sección de cabecera (rama: `feature/project-header`)
 
-- [ ] Crear componente Header utilizando Card de shadcn para el contenedor
-- [ ] Implementar banner con imagen del proyecto usando AspectRatio de shadcn
-- [ ] Crear título y descripción del proyecto con Typography de shadcn
-- [ ] Implementar botones "Back this project" y "Bookmark" con Button de shadcn
-- [ ] Aplicar estilos responsive con clases de Tailwind
+- [x] Crear componente Header utilizando Card de shadcn para el contenedor
+- [x] Implementar banner con imagen del proyecto usando AspectRatio de shadcn
+- [x] Crear título y descripción del proyecto con Typography de shadcn
+- [x] Implementar botones "Back this project" y "Bookmark" con Button de shadcn
+- [x] Aplicar estilos responsive con clases de Tailwind
 - **Punto de control**: `tag v0.2.0-cabecera`
 
 ## 3. Sección de estadísticas (rama: `feature/statistics-display`)

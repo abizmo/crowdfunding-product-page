@@ -3,7 +3,7 @@ import { immer } from "zustand/middleware/immer";
 
 import { Pledge } from "@/types";
 
-enum ModalType {
+export enum ModalType {
   PLEDGE_OPTION = "PLEDGE_OPTION",
   THANK_YOU = "THANK_YOU",
 }
@@ -32,7 +32,7 @@ interface ModalState {
 
 interface ModalActions {
   actions: {
-    openModal: () => void;
+    openModal: (props: Omit<ModalUnion, "isOpen">) => void;
     closeModal: () => void;
     toggleModal: () => void;
   };
@@ -46,9 +46,11 @@ const modalStore = create<ModalState & ModalActions>()(
       modalProps: {},
     },
     actions: {
-      openModal: () =>
+      openModal: ({ modalType, modalProps }) =>
         set((state) => {
           state.modal.isOpen = true;
+          state.modal.modalType = modalType;
+          state.modal.modalProps = modalProps;
         }),
       closeModal: () =>
         set((state) => {

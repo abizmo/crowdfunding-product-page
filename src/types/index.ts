@@ -12,15 +12,15 @@ export interface Stats {
   goal: number;
   backedAmount: number;
   backers: number;
-  daysLeft: number;
+  targetDate: Date;
 }
 
 export interface Pledge {
   id: string;
   name: string;
-  minPledge: number;
+  minPledge?: number;
   description: string;
-  remaining: number;
+  remaining?: number;
 }
 
 export interface Project {

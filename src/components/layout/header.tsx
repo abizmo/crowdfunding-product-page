@@ -8,7 +8,7 @@ function Header() {
   ];
 
   return (
-    <header className="container flex h-20 items-center justify-between sm:py-12">
+    <header className="absolute container flex min-h-20 items-center justify-between sm:py-12">
       <a href="/">
         <img src="/images/logo.svg" alt="crowfund" />
       </a>
