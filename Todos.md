@@ -52,11 +52,11 @@
 
 ## 3. Sección de estadísticas (rama: `feature/statistics-display`)
 
-- [ ] Crear componente Stats utilizando Card de shadcn
-- [ ] Implementar store de Zustand para los datos de estadísticas
-- [ ] Desarrollar indicadores de progreso con Progress de shadcn
-- [ ] Crear contadores utilizando formateadores personalizados
-- [ ] Aplicar estilos responsive para móvil/desktop con Tailwind
+- [x] Crear componente Stats utilizando Card de shadcn
+- [x] Implementar store de Zustand para los datos de estadísticas
+- [x] Desarrollar indicadores de progreso con Progress de shadcn
+- [x] Crear contadores utilizando formateadores personalizados
+- [x] Aplicar estilos responsive para móvil/desktop con Tailwind
 - **Punto de control**: `tag v0.3.0-estadisticas`
 
 ## 4. Sección de descripción del proyecto (rama: `feature/project-description`)
