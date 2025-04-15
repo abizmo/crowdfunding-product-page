@@ -1,6 +1,6 @@
 function AttributionFooter() {
   return (
-    <footer className="absolute bottom-4 w-full text-center text-xs">
+    <footer className="relative bottom-4 w-full text-center text-xs">
       Challenge by{" "}
       <a
         href="https://www.frontendmentor.io?ref=challenge"
