@@ -16,15 +16,15 @@ type ModalPropsMap = {
 type ModalUnion =
   | {
       isOpen: true;
-      modalType: ModalType.PLEDGE_OPTION;
-      modalProps: ModalPropsMap[ModalType.PLEDGE_OPTION];
+      type: ModalType.PLEDGE_OPTION;
+      props: ModalPropsMap[ModalType.PLEDGE_OPTION];
     }
   | {
       isOpen: true;
-      modalType: ModalType.THANK_YOU;
-      modalProps: ModalPropsMap[ModalType.THANK_YOU];
+      type: ModalType.THANK_YOU;
+      props: ModalPropsMap[ModalType.THANK_YOU];
     }
-  | { isOpen: false; modalType: null; modalProps: {} };
+  | { isOpen: false; type: null; props: {} };
 
 interface ModalState {
   modal: ModalUnion;
@@ -42,19 +42,21 @@ const modalStore = create<ModalState & ModalActions>()(
   immer((set) => ({
     modal: {
       isOpen: false,
-      modalType: null,
-      modalProps: {},
+      type: null,
+      props: {},
     },
     actions: {
-      openModal: ({ modalType, modalProps }) =>
+      openModal: ({ type: modalType, props: modalProps }) =>
         set((state) => {
           state.modal.isOpen = true;
-          state.modal.modalType = modalType;
-          state.modal.modalProps = modalProps;
+          state.modal.type = modalType;
+          state.modal.props = modalProps;
         }),
       closeModal: () =>
         set((state) => {
           state.modal.isOpen = false;
+          state.modal.props = {};
+          state.modal.type = null;
         }),
       toggleModal: () =>
         set((state) => {

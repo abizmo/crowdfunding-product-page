@@ -10,8 +10,8 @@ function ProductHeader() {
 
   const handleOpenPledges = () => {
     openModal({
-      modalType: ModalType.PLEDGE_OPTION,
-      modalProps: { pledgeOptions },
+      type: ModalType.PLEDGE_OPTION,
+      props: { pledgeOptions },
     });
   };
 
