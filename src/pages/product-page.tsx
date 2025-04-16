@@ -1,13 +1,10 @@
+import Modal from "@/components/modal";
 import ProductBanner from "@/components/product/product-banner";
 import ProductBody from "@/components/product/product-body";
 import ProductHeader from "@/components/product/product-header";
 import ProductStats from "@/components/product/product-stats";
-import { useModalState } from "@/stores/modal-store";
-import { Pledge } from "@/types";
 
 function ProductPage() {
-  const { isOpen, modalProps } = useModalState();
-  const { pledgeOptions } = modalProps as { pledgeOptions: Pledge[] };
   return (
     <main>
       <ProductBanner />
@@ -16,9 +13,7 @@ function ProductPage() {
         <ProductStats />
         <ProductBody />
       </div>
-      <dialog open={isOpen}>
-        {pledgeOptions && pledgeOptions.map((p) => <p>{p.name}</p>)}
-      </dialog>
+      <Modal />
     </main>
   );
 }
