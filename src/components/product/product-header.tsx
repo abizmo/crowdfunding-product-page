@@ -2,16 +2,14 @@ import ProductBookmark from "@/components/product/product-bookmark";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ModalType, useModalActions } from "@/stores/modal-store";
-import { useProjectState } from "@/stores/project-store";
 
 function ProductHeader() {
-  const { pledgeOptions } = useProjectState();
   const { openModal } = useModalActions();
 
   const handleOpenPledges = () => {
     openModal({
       type: ModalType.PLEDGE_OPTION,
-      props: { pledgeOptions },
+      props: { pledgeSelected: null },
     });
   };
 

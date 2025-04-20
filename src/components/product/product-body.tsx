@@ -22,7 +22,7 @@ function ProductBody() {
         ))}
       </CardHeader>
       <CardContent>
-        <PledgeList />
+        <PledgeList withRewards />
       </CardContent>
     </Card>
   );

@@ -13,7 +13,7 @@ function MobileNavigation({ navLinks }: MobileNavigationProps) {
   return (
     <>
       <nav
-        className={`absolute inset-0 bg-linear-to-b from-black/75 to-black/50 px-6 py-20 ${isOpen ? "" : "hidden"}`}
+        className={`fixed inset-0 z-10 bg-linear-to-b from-black/75 to-black/50 px-6 py-20 ${isOpen ? "" : "hidden"}`}
       >
         <ul className="bg-card overflow-hidden rounded-xl text-lg font-medium text-black">
           {navLinks.map(({ href, label }) => (
@@ -28,7 +28,7 @@ function MobileNavigation({ navLinks }: MobileNavigationProps) {
           ))}
         </ul>
       </nav>
-      <div className="absolute right-6">
+      <div className="fixed right-6 z-20">
         <button className="p-2" onClick={toggleMenu}>
           {isOpen ? <CloseMenuIcon /> : <HamburgerIcon />}
           <span className="sr-only">Toggle Menu</span>

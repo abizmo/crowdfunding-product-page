@@ -1,12 +1,7 @@
-import { useModalState } from "@/stores/modal-store";
-import { Pledge } from "@/types";
-
+import PledgeList from "./product/pledge-list";
 import { DialogDescription, DialogHeader, DialogTitle } from "./ui/dialog";
 
 function BackProject() {
-  const { props: modalProps } = useModalState();
-  const { pledgeOptions } = modalProps as { pledgeOptions: Pledge[] };
-
   return (
     <>
       <DialogHeader>
@@ -16,7 +11,7 @@ function BackProject() {
           the world?
         </DialogDescription>
       </DialogHeader>
-      {pledgeOptions && pledgeOptions.map((p) => <p key={p.id}>{p.name}</p>)}
+      <PledgeList withForm className="flex-grow overflow-auto" />
     </>
   );
 }

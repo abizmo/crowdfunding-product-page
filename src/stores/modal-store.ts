@@ -1,15 +1,13 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-import { Pledge } from "@/types";
-
 export enum ModalType {
   PLEDGE_OPTION = "PLEDGE_OPTION",
   THANK_YOU = "THANK_YOU",
 }
 
-type ModalPropsMap = {
-  PLEDGE_OPTION: { pledgeOptions: Pledge[] };
+export type ModalPropsMap = {
+  PLEDGE_OPTION: { pledgeSelected: string | undefined };
   THANK_YOU: { name: string };
 };
 
@@ -35,6 +33,7 @@ interface ModalActions {
     openModal: (props: Omit<ModalUnion, "isOpen">) => void;
     closeModal: () => void;
     toggleModal: () => void;
+    changeSelected: (id: string) => void;
   };
 }
 
@@ -62,6 +61,13 @@ const modalStore = create<ModalState & ModalActions>()(
         set((state) => {
           state.modal.isOpen = !state.modal.isOpen;
         }),
+      changeSelected: (id) => {
+        set((state) => {
+          (
+            state.modal.props as ModalPropsMap[ModalType.PLEDGE_OPTION]
+          ).pledgeSelected = id;
+        });
+      },
     },
   })),
 );
