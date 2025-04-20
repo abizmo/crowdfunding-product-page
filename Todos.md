@@ -61,11 +61,11 @@
 
 ## 4. Sección de descripción del proyecto (rama: `feature/project-description`)
 
-- [ ] Crear componente Description con Card de shadcn
-- [ ] Implementar contenido con componentes Typography de shadcn
-- [ ] Desarrollar visualización de contenido Markdown si es necesario
-- [ ] Aplicar estilos de texto y espaciado con Tailwind
-- [ ] Implementar visualización responsive para todos los dispositivos
+- [x] Crear componente Description con Card de shadcn
+- [x] Implementar contenido con componentes Typography de shadcn
+- [x] Desarrollar visualización de contenido Markdown si es necesario
+- [x] Aplicar estilos de texto y espaciado con Tailwind
+- [x] Implementar visualización responsive para todos los dispositivos
 - **Punto de control**: `tag v0.4.0-descripcion`
 
 ## 5. Sección de recompensas (rama: `feature/reward-tiers`)
